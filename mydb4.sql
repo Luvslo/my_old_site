@@ -1,0 +1,13 @@
+USE gom;
+
+
+CREATE TABLE AnagramCustom(
+Anagram_Id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+Anagram_Player TEXT null,
+Anagram_Score INTEGER,
+Anagram_Date VARCHAR(255) ,
+Gid INTEGER UNSIGNED NOT NULL,
+PRIMARY KEY (Anagram_Id ),
+FOREIGN KEY (Gid) REFERENCES AnagGames(Gid)
+
+)

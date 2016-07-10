@@ -1,0 +1,9 @@
+to password mou einai:asd1234567890
+
+
+pass gia db :"asdasdasdasd1"
+-=========
+$mysql_host = "mysql6.000webhost.com";
+$mysql_database = "geopse_gom";
+$mysql_user = "a4941895_root";
+$mysql_password = "asdasdasdasd1";
