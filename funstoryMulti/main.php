@@ -49,19 +49,19 @@ if($numOfSubmits>= $NumSentences){
 if (empty($playerName)){
 header("location:index.php");	
 }
-//debugging vvvvvvvv
-echo "your Pid is " .$pid . " your playername is " .$playerName ." your turn is " .$turn. " your session id you play is  " .$sid . " num of submits " .$numOfSubmits ." sessionIsFull value ".$sessionIsFull;
-//need to find the sentences 
-//2016
+//uncomment this echo for debugging purposes.
+//echo "your Pid is " .$pid . " your playername is " .$playerName ." your turn is " .$turn. " your session id you play is  " .$sid . " num of submits " .$numOfSubmits ." sessionIsFull value ".$sessionIsFull;
+
+//initialize lastWord 
 if (empty($lastWord)) {
 	$lastWord = " ";
-	echo " AAAAA LAST WORD EMPTYYYYY";
+	
 	$_SESSION['lastWord']= " ";
 }
 else{
 	
 }
-///2016
+
 if($turn >0){
 	$tbl_name="Sentences";
 	$sql="SELECT * FROM $tbl_name WHERE Sid='$sid' ";
@@ -114,15 +114,8 @@ $('#resultsss').load('newEntry.php');
 }, 1000);
 
 </script>
-<script>
-var myTurn = "<?php echo $turn; ?>";
 
-if (myTurn < 1)
-  {
-//window.setTimeout(function(){location.reload()},10000)
-  }
- 
-</script>
+
 </head>
 
 <body>
@@ -147,18 +140,24 @@ if (myTurn < 1)
       <p>
        
         </p>
+		<b>
+		<font face="Helvetica Neue" size = '6' color="orange">		
+		 <?php echo "Hello  (". $playerName. " !) ";?>		
+		 </font> </b>
         <center>
          <b> 
+		  
+		<br />
         <font face="Helvetica Neue" size = '7' color=" <?php echo $color;?>">
 		
-	   <?php echo $message ." ".$playerName; ?>
+	   <?php echo $message;  ?>
         </b><br/></font>
         <font face="Helvetica Neue" size = '6'>
        <b>Continue the story ! <br />
        
        the last word from previous sentence is :</b>
          <br /><br />
-         <!----Edw na valw DIV gia to autorefresh !----->
+         <!----DIV for autorefresh! aka div id="resultsss" ----->
                   <b>  <blockquote> <font size="6" color="green">  <div id="resultsss">" <?php echo $lastWord;?> "
 				  </font></b>
            <br /></blockquote></div>
