@@ -20,9 +20,9 @@ else
 //save to database table= sessions 
 include('../db_connect.php');
 	//numPlayers = total of players that can join
-	//numCurrentPlayers = current players enrolled , of course starts with 1 with the creator participating
+	//numCurrentPlayers = current players enrolled, of course starts with 1 with the creator participating
 	//numOfSubmits = how many submits have been so far , starts with 0 
-//$variable = mysql_real_escape_string($variable);
+	//$variable = mysql_real_escape_string($variable);
 	$sessionName =mysql_real_escape_string($sessionName);
 	$Creator =mysql_real_escape_string($Creator);	
 	
@@ -37,7 +37,7 @@ if (!mysql_query($sql,$con))
 //save some values to sessions
  $_SESSION['creator']=$Creator; 
  $_SESSION['pass']=$Pass;
-$_SESSION['sessionName']= $sessionName;
+ $_SESSION['sessionName']= $sessionName;
  header("location:check2.php");
 	
 	

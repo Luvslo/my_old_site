@@ -6,7 +6,7 @@ $pass = $_SESSION['pass'];
 echo "youre ".$creator." and your pass is this thing ".$pass;
 
 include('../db_connect.php');
-//oops ! goota find the Sid first of the previous entry in database 	
+//Find the sid	
 	$tbl_name="Sessions";
 	$sessionName=$_SESSION['sessionName'];
 	$sql="SELECT * FROM $tbl_name WHERE Creator='$creator' AND sessionName='$sessionName' ORDER BY Sid ASC";
@@ -27,7 +27,7 @@ if (!mysql_query($sql,$con))
   die('Error: ' . mysql_error());
   }
 
- header("location:index.php");
+header("location:index.php");
 
 	
 	

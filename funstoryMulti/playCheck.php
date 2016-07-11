@@ -1,6 +1,5 @@
 <?php
 
-//echo $_GET['NumCurrentPlayers'];
 //dem gets
 include('../db_connect.php');
 ob_start();
@@ -10,10 +9,9 @@ $numPlayers=$_GET['numPlayers'];
 $NumSentences = $_GET['NumSentences'];
 $sid =$_GET['sid'];
 $player = $_GET['player'];
-//$salt="my name is george pseiridis and I am building a site";
-//$pass= md5($_GET['pass'].md5($salt));
+
 $pass= $_GET['pass'];
-//check session password
+
 $tbl_name="Sessions";
 
 $sql="SELECT * FROM $tbl_name WHERE Sid='$sid' AND sessionPass ='$pass'  ";
@@ -40,9 +38,9 @@ else
 
 echo "current players  ".$NumCurrentPlayers . " while num of players avaialble is " .$numPlayers."<br>";
 //must do following 
-//1) if player who typed his name and pass have been enrolled then proceed
-//if not , check if there's available spot to include that player 
-//if the session is full , header to some " sorry ! Session's full " 
+//1) if player who typed his/her name and pass have been enrolled then proceed
+//if not, check if there's available spot to include that player 
+//if the session is full, header to some " sorry! Session's full " 
 
 	$tbl_name="Players";
 	$sql="SELECT * FROM $tbl_name WHERE Sid='$sid' AND playerName='$player' AND playerPass ='$pass'  ";
@@ -57,12 +55,10 @@ echo "current players  ".$NumCurrentPlayers . " while num of players avaialble i
 	$turn=$row['Turn'];
 	$playerName=$row['playerName'];
 	$Pid =$row['Pid'];
-	}//<- end fetch assoc
+	}
 
 if (empty($playerName)){
 echo "no entries found	";
-//insert into database 
-//header("location:index.php");
 
 	//check if there are available seats
 	if($NumCurrentPlayers ==$numPlayers){
@@ -79,7 +75,7 @@ if (!mysql_query($sql,$con))
   {
   die('Error: ' . mysql_error());
   }
-  //additionally , inform-UPDATE the Sessions table that NumCurrentPlayers =+ 1
+  //additionally, inform-UPDATE the Sessions table that NumCurrentPlayers =+ 1
   $NumCurrentPlayers++;
   mysql_query("UPDATE Sessions SET NumCurrentPlayers='$NumCurrentPlayers' WHERE Sid ='$sid' ");
    //find the Pid of new entry 

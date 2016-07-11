@@ -29,7 +29,7 @@
         Welcome to the multiplayer version of a fun interactive story!!! <br /></font><br />
         <img src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/128/Document-Copy-icon.png" />
           </center>
-           <font  size = '4'color='orange'><p>DESCRIPTION: </font> <font  size = '4'color='grey'>The game is simple . You  a session and by the time you do , your friends can join . The game will start only when all your friends have joined in your session . The creator of the session starts writing a story and then chooses the last word . Last word or last sentence is what is going to be visible to the other player. When the session is finished , the complete story will be revealed ! You can review your stories in the closed sessions.
+           <font  size = '4'color='orange'><p>DESCRIPTION: </font> <font  size = '4'color='grey'>The game is simple. You create a session and you can let your friends to join. The game will start only when all your friends have joined in your session. The creator of the session starts writing a story and then chooses the last word. Last word or last sentence is what is going to be visible to the other player. When the session is finished, the complete story will be revealed ! You can review your stories in the closed sessions.
   </br>
  <center> </font>
  
@@ -67,60 +67,15 @@
            </center>
             </p> 
            <center>
-    
-          <strong> <font  size = '6'>   Create a new Session </font><br/><br/></strong>
-<form name="form1" method="post" action="check.php">
- <strong><font  size = '4'>Type Session Name here  :</strong> </br>
- <input type="text" name="sessionName"></input></br></br>
-<strong>Type your name here :</strong> </br>
- <input type="text" name="Creator"></input></br></br>
+		   
+<strong>
+<font face="Helvetica Neue" size='6'>Available Sessions so far....</br></br></font> </strong>
 
-
- <strong>  Session Pass :  
-      <font  size = '3'color='red' >   ( </font><font  size = '2'color='red' >Optional!</font> <font  size = '3'color='red' >) 
-       </font> </strong> </br> </font>
- <input type="text" name="sessionPass"></input></br>
-
-<td><p>
-<strong> Number of Sentences <br>
-        	  <select id="numSentences" name="numSentences">
-                    <option>10</option>
-                    <option>20</option>
-                    <option>30</option>
-                    <option>40</option>
-                    <option>50</option>
-                    <option>60</option>
-                    <option>70</option>
-                    <option>80</option>
-                </select></br></br>
-                Number of Players </br>
-                <select id="numPlayers" name="numPlayers">
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                </select></br></br>
-</font>
-  
-
- <span class="ButtonInput"  ><span> <input  type="submit" name="" value="   New Session   "></span></span>
-  
-  
-</p></td>
-</form>
-
-<hr>
-<font face="Helvetica Neue">
-
-<font face="Helvetica Neue" size='6'>Available Sessions so far....</br></br></font>
 <?php
 ob_start();
 include('../db_connect.php');
-	$tbl_name="Sessions";
-	$sql="SELECT * FROM $tbl_name WHERE Closed='0'";
+	
+	$sql="SELECT * FROM Sessions WHERE Closed='0'";
 	$result=mysql_query($sql);
 	$count=mysql_num_rows($result);
  
@@ -130,7 +85,7 @@ include('../db_connect.php');
 		$Sid=array();
 		$sessionName=array();
 		$numPlayers=array();
-		$NumSentences=array();//vale to se form 'h akoma kai invisible
+		$NumSentences=array();
 		$i=0;
 
            while($row = mysql_fetch_assoc($result))
@@ -144,12 +99,12 @@ include('../db_connect.php');
 	$NumSentences[$i]  =  $row['NumSentences'];
 	$NumCurrentPlayers [$i]  =  $row['NumCurrentPlayers'];
 	$numOfSubmits[$i] = $row['numOfSubmits'];
-	}//<- end fetch assoc
+	}
 	
 	
 	if (empty($Sid[1])){
-// if there is no post , go back
-//note gia pio katw , thelw forma oxi links , den tha doulepsei etsi ;/
+// if there is no post, go back
+
 echo " There are no available sessions yet ";
 }
 else
@@ -196,6 +151,54 @@ echo "Session # " .$i. "  NAME: " ."<font  size = '4'color='green'>". $sessionNa
 ?>
 
 
+<hr>
+ 
+ 
+          <strong> <font  size = '6'>   Create a new Session </font><br/><br/></strong>
+<form name="form1" method="post" action="check.php">
+ <strong><font  size = '4'>Type Session Name here  :</strong> </br>
+ <input type="text" name="sessionName"></input></br></br>
+<strong>Type your name here :</strong> </br>
+ <input type="text" name="Creator"></input></br></br>
+
+
+ <strong>  Session Pass :  
+      <font  size = '3'color='red' >   ( </font><font  size = '2'color='red' >Optional!</font> <font  size = '3'color='red' >) 
+       </font> </strong> </br> </font>
+ <input type="text" name="sessionPass"></input></br>
+
+<td><p>
+<strong> Number of Sentences <br>
+        	  <select id="numSentences" name="numSentences">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <option>40</option>
+                    <option>50</option>
+                    <option>60</option>
+                    <option>70</option>
+                    <option>80</option>
+                </select></br></br>
+                Number of Players </br>
+                <select id="numPlayers" name="numPlayers">
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                </select></br></br>
+</font>
+  
+
+ <span class="ButtonInput"  ><span> <input  type="submit" name="" value="   New Session   "></span></span>
+  
+  
+</p></td>
+</form>
+
+
 
 
 <hr>
@@ -203,8 +206,8 @@ echo "Session # " .$i. "  NAME: " ."<font  size = '4'color='green'>". $sessionNa
 <?php
 
 
-$tbl_name="Sessions";
-	$sql="SELECT * FROM $tbl_name WHERE Closed='1'";
+
+	$sql="SELECT * FROM Sessions WHERE Closed='1'";
 	$result=mysql_query($sql);
 	$count=mysql_num_rows($result);
  

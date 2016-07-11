@@ -20,10 +20,9 @@ include('../db_connect.php');
 	{   	
 	$turn=$row['Turn'];	
 	$Pid =$row['Pid'];
-	}//<- end fetch assoc
+	}
 
 //check if it finished
-//thelw to num of submits apo thn vash
 	$tbl_name="Sessions";
 	$sql="SELECT * FROM $tbl_name WHERE Sid='$sid'  ";
 	$result=mysql_query($sql);
@@ -37,14 +36,13 @@ include('../db_connect.php');
 	$NumSentences= $row['NumSentences'];
 	$sessionIsFull =$row['sessionIsFull'];
 	
-	}//<- end fetch assoc
+	}
 //
 if($numOfSubmits>= $NumSentences){
 	echo "stop here " .$numOfSubmits." num of sentences is " .$NumSentences;
 	header("location:end.php");
 }
-//to thema einai ti ginetai me to turn , mhpws to pernw apo session na teleiwnoume
-//$turn =$_SESSION['turn'];
+
 
 if (empty($playerName)){
 header("location:index.php");	
@@ -244,7 +242,7 @@ function checkvalue() {
 <font face="Helvetica Neue" color='#666666' size = '4'> Keep in mind that 'Last Words' is part of the sentence you submit :)<br />
 It is saved as ' Your sentence : ' + ' Last Words : '
 </font></center>
-<font face="Helvetica Neue" color='#333333' size = '5'><center>Should you experience any problems , hit the refresh button </font>
+<font face="Helvetica Neue" color='#333333' size = '5'><center>Should you experience any problems, hit the refresh button </font>
  <form>
    <input type="image" src="Button-Refresh-icon.png" alt="Submit" onClick="history.go(0)"  >
 </form>
