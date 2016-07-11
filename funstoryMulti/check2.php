@@ -7,15 +7,22 @@ echo "youre ".$creator." and your pass is this thing ".$pass;
 
 include('../db_connect.php');
 //Find the sid	
-	$tbl_name="Sessions";
+	
 	$sessionName=$_SESSION['sessionName'];
-	$sql="SELECT * FROM $tbl_name WHERE Creator='$creator' AND sessionName='$sessionName' ORDER BY Sid ASC";
+	$sql="SELECT * FROM Sessions WHERE Creator='$creator' AND sessionName='$sessionName' ORDER BY Sid ASC";
 	$result=mysql_query($sql);
 	while($row = mysql_fetch_assoc($result))
 	{   
 	$sid= $row['Sid'];
+	//2016
+	$NumCurrentPlayers= $row['NumCurrentPlayers'];
+	$numPlayers= $row['numPlayers'];
+	$NumSentences = $row['NumSentences'];
+	
+	
 	}
 	echo " .... sid is  " .$sid;
+	echo "  .. and numCurrentPlayers =" .$NumCurrentPlayers." and numPlayers = ". $numPlayers. " NumSentences is " .$NumSentences;
 	
 
 	$sql="INSERT INTO Players (playerName  ,playerPass, Turn, Sid,Refresh)
@@ -27,11 +34,38 @@ if (!mysql_query($sql,$con))
   die('Error: ' . mysql_error());
   }
 
-header("location:index.php");
+//header("location:index.php");
 
+	$tbl_name="Players";
+	$sql="SELECT * FROM $tbl_name WHERE Sid='$sid' AND playerName='$creator' AND playerPass ='$pass'  ";
+	$result=mysql_query($sql);
+	$count=mysql_num_rows($result);
+
+       $num_rows = mysql_num_rows($result);
+	      
+	            while($row = mysql_fetch_assoc($result))
+	{   
 	
-	
+	$turn=$row['Turn'];
+	$playerName=$row['playerName'];
+	$Pid =$row['Pid'];
+	}
+
+echo "turn = ". $turn. "  playerName = ". $playerName. " and Pid = ". $Pid;
 
 
+// session variables init
+
+
+$_SESSION['Pid']=$Pid;
+$_SESSION['playerName']=$playerName;
+$_SESSION['turn']=$turn;
+$_SESSION['Sid']=$sid;
+$_SESSION['NumSentences'] =$NumSentences;
+$_SESSION['pass']=$pass;
+$_SESSION['counter']=0; 
+
+header("location:main.php");
+ob_end_flush(); 
 
 ?>

@@ -12,7 +12,7 @@ else
 	echo $Creator;	
  //$salt="my name is george pseiridis and I am building a site";
  //$Pass= md5($_POST['playerPass'].md5($salt)); 
- $Pass=$_POST['sessionPass'];
+  $Pass=$_POST['sessionPass'];
   $numSentences=$_POST['numSentences'];
   $numPlayers=$_POST['numPlayers'];
   $sessionName=$_POST['sessionName'];
