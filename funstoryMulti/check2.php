@@ -34,7 +34,8 @@ if (!mysql_query($sql,$con))
   die('Error: ' . mysql_error());
   }
 
-//header("location:index.php");
+
+ // the code to redirect you to the main.php with needed session values 
 
 	$tbl_name="Players";
 	$sql="SELECT * FROM $tbl_name WHERE Sid='$sid' AND playerName='$creator' AND playerPass ='$pass'  ";
@@ -47,7 +48,6 @@ if (!mysql_query($sql,$con))
 	{   
 	
 	$turn=$row['Turn'];
-	$playerName=$row['playerName'];
 	$Pid =$row['Pid'];
 	}
 
@@ -58,7 +58,7 @@ echo "turn = ". $turn. "  playerName = ". $playerName. " and Pid = ". $Pid;
 
 
 $_SESSION['Pid']=$Pid;
-$_SESSION['playerName']=$playerName;
+$_SESSION['playerName']=$creator;
 $_SESSION['turn']=$turn;
 $_SESSION['Sid']=$sid;
 $_SESSION['NumSentences'] =$NumSentences;

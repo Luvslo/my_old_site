@@ -37,11 +37,11 @@
           <font  size = '7'  face="Helvetica Neue" color='#006666' > <p> <i><center>Hello World! </i></center></font>
                   <hr style='background-color:#000000;border-width:1;color:#0066CC;height:2px;line-height:1;text-align:left;width:70%;'/>
             <font  size = '4'color='#333333'  face="Helvetica Neue">
-            My name is <i>Georgios Pseirids - Pseiras</i> and I am a Computer Systems Engineer. This site serves as a means to share my projects with the rest of the world . 
-            <br/>I enjoy developing my own applications in my free time and convert my ideas into a reality .
+            My name is <i>Georgios Pseirids - Pseiras</i> and I am a Computer Systems Engineer. This site serves as a means to share my projects with the rest of the world. 
+            <br/>I enjoy developing my own applications in my free time and convert my ideas into a reality.
 I like experimenting with different programming languages such as <i> Java, PHP, C# and more </i>.
 I am currently studying android development and I have built some applications which I have tested on my phone and emulators. I am looking forward to gain deeper knowledge in that particular field!
-I have also earned recently a <a href=" https://www.dropbox.com/s/m6qa7vc4csmpdcb/Pseiridis%20-%20Pseiras%20Georgios%20CV.pdf" target="_blank" style="text-decoration:none;"><font color="#0000FF"> Verified Certificate </a></font> from <i>Coursera.org </i>about android development , offered by University of Illinois at Urbana-Champaign . 
+I have also earned recently a <a href=" https://www.dropbox.com/s/m6qa7vc4csmpdcb/Pseiridis%20-%20Pseiras%20Georgios%20CV.pdf" target="_blank" style="text-decoration:none;"><font color="#0000FF"> Verified Certificate </a></font> from <i>Coursera.org </i>about android development , offered by University of Illinois at Urbana-Champaign. 
 You can review my <a href=" https://www.dropbox.com/s/m6qa7vc4csmpdcb/Pseiridis%20-%20Pseiras%20Georgios%20CV.pdf" target="_blank" style="text-decoration:none;"><font color="#0000FF"> Curriculum Vitae </a></font> if you wish
    
   <br />
