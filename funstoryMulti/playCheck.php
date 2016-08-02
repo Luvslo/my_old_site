@@ -101,8 +101,6 @@ echo " your turn is " .$turn . " and your name is " .$playerName ." available cu
 //fetch assoc for Values[$i] and lastWord[$i] 
 // if Values[$i] = Null then  Values[$i]=" ";  ,lastWord same 
 //NumOfSubmits ++;
-//basika den xreiazetai tha to kanei afto allo scriptaki
-// afou den yparxei logos na apothikefsw kati keno sto Sentences 
 // sto main tha psaxnei an yparxei kati sto Sentences gia to sigekrimeno Pid kai Sid
 //
 
